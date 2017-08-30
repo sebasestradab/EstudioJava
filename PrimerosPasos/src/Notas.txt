@@ -1,0 +1,76 @@
+Tipos de Datos Primitivos
+	Enteros:
+		int		: -2,147,483,648 hasta 2,147,483,647
+		Short	: -32,768 hasta 32,767
+		Long	: Sufijo L Ejm. 50000000000L
+		byte	: -128 hasta 127
+		
+	Decimales: (Coma Flotante)
+		Float	: de 6 a 7 Decimales. Sufijo F Ejm. 3.25F
+		Double	: Aprox. 15 cifras decimales 
+	
+	Char: Ejm. 'a'
+	
+	Boolean: True o False
+
+- Todas las varibles se deben inicializar.
+
+- La palabra final se utiliza para definir constantes. Ejm. final double x = 5,67;
+
+Operadores Logicos
+	!= : Distinto
+	&& : And
+	|| : Or
+
+Concatenacion : +
+
+API Java: Biblioteca de Clases. Se busca en Google para ver todas las clases que maneja Java.
+
+Convertir dato : Se pone antes del dato a convertir, entre parentesis el tipo al que se va a convertir. Ejm. (int)
+
+Clase predefinidas: Son de las API de Java.
+Clases propias: Las que crea el programador.
+
+Jerarquia Clases de Java:
+
+				paquetes
+			java							javax
+java.awt java.util java.io		javax.activity	javax.annotation
+		java.util.regex
+
+- La clase Java.lang y sus subclses es por defecto la que se puede utilizar sin necesidad de importarla.
+
+- Cuando un metodo es estatico implica que para ser invocado debe ser precedido por la clase. Ejm: JOptionPane.showInputDialog() ---> Clase.Metodo()
+
+- El metodo constructor tiene el mismo nombre de la clase.
+
+- La clase Scanner sirve para obtener informacion por consola.
+
+- Para dar formato a los numeros con la funcion System.out.printf es "%1.2f", el 2 es el numero de decimales.
+
+----- POO
+
+- Clase: Modelo donde se redactan las caracteristicas comunes de un grupo de objetos.
+
+- Objeto: Tiene propiedades y comportamientos.
+
+- Ejemplar de Clase: 
+
+- Encapsulamiento: Volver propio o publico las diferentes atributos y metodos (private, public, protected).
+
+- Modularizacion: Tener distribuido en varios modulos (clsese) los programas.
+
+- Herencia: 
+
+- Polimorfismo: 
+
+- static: Se aplica a variables, constantes y metodos. Todas las instancias comparten lp definido static. 
+
+
+
+
+
+
+
+
+			
