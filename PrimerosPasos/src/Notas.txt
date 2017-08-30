@@ -60,8 +60,8 @@ java.awt java.util java.io		javax.activity	javax.annotation
 
 - Modularizacion: Tener distribuido en varios modulos (clsese) los programas.
 
-- Herencia: 
-
+- Herencia: Con la palabra extends y la clase de la que hereda.
+	super(); Llama el contructor de la clase padre
 - Polimorfismo: 
 
 - static: Se aplica a variables, constantes y metodos. Todas las instancias comparten lp definido static. 
