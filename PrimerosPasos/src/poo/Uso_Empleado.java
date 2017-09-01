@@ -1,7 +1,7 @@
 //===============================
 // Tutorial de Java YouTube
 // CLASE: Uso_Empleado
-// Video 33-34-35
+// Video 33-34-35-42
 //===============================
 package poo;
 
@@ -28,26 +28,30 @@ public class Uso_Empleado {
 				" Fecha de Alta: " + empleado3.dameFechaContrato());
 		*/
 		
-		Empleado[] misEmpleados = new Empleado[4];
+		Jefatura jefe_RRHH = new Jefatura("Juan", 55000, 2006, 9, 25);
+		
+		jefe_RRHH.estableceIncentivo(2570);
+		
+		Empleado[] misEmpleados = new Empleado[6];
 		
 		misEmpleados[0] = new Empleado("Paco Gómez", 85000, 1990, 12, 17);
 		misEmpleados[1] = new Empleado("Ana López", 95000, 1995, 06, 02);
 		misEmpleados[2] = new Empleado("Maria Martín", 105000, 2002, 03, 15);
 		misEmpleados[3] = new Empleado("Antonio Fernandez");
-		
-		/*for(int i=0;i<misEmpleados.length;i++){
-			misEmpleados[i].subeSueldo(5);
-		}*/
+		misEmpleados[4] = jefe_RRHH; // Polimorfismo
+		misEmpleados[5] = new Jefatura("Maria", 95000, 1999, 5, 26);
 		
 		// FOR mejorado
+		//for(int i=0;i<misEmpleados.length;i++){
 		for(Empleado e: misEmpleados){
 			e.subeSueldo(5);
 		}
 		
-		for(int i=0;i<misEmpleados.length;i++){
-			System.out.println("Nombre " + misEmpleados[i].dameNombre()
-								+ " Sueldo " + misEmpleados[i].dameSueldo()
-								+ " Fecha de Alta " + misEmpleados[i].dameFechaContrato());
+		//for(int i=0;i<misEmpleados.length;i++){
+		for(Empleado e: misEmpleados){
+			System.out.println("Nombre " + e.dameNombre()
+								+ " Sueldo " + e.dameSueldo()
+								+ " Fecha de Alta " + e.dameFechaContrato());
 		}
 	}
 
@@ -57,6 +61,8 @@ class Empleado{
 	private String nombre;
 	private double sueldo;
 	private Date altaContrato;
+	private int Id;
+	private static int IdSiguiente = 1;
 	
 	public Empleado(String nom, double sue, int ano, int mes, int dia){
 		nombre = nom;
@@ -64,6 +70,8 @@ class Empleado{
 		GregorianCalendar calendario = new GregorianCalendar(ano, mes-1, dia);
 		
 		altaContrato = calendario.getTime();
+		Id = IdSiguiente;
+		IdSiguiente++;
 	}
 	
 	public Empleado(String nom){
@@ -71,7 +79,7 @@ class Empleado{
 	}
 	
 	public String dameNombre(){
-		return nombre;
+		return nombre + " Id: " + Id;
 	}
 	
 	public double dameSueldo(){
@@ -86,5 +94,23 @@ class Empleado{
 		double aumento = sueldo*porcentaje/100;
 		
 		sueldo += aumento;
+	}
+}
+
+class Jefatura extends Empleado {
+	private double incentivo;
+	
+	public Jefatura(String nom, double sue, int ano, int mes, int dia) {
+		super(nom, sue, ano, mes, dia);
+	}
+	
+	public void estableceIncentivo(double b) {
+		incentivo = b;
+	}
+	
+	public double dameSueldo() {
+		double sueldoJefe = super.dameSueldo();
+		
+		return sueldoJefe + incentivo;
 	}
 }

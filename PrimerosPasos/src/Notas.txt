@@ -62,7 +62,10 @@ java.awt java.util java.io		javax.activity	javax.annotation
 
 - Herencia: Con la palabra extends y la clase de la que hereda.
 	super(); Llama el contructor de la clase padre
-- Polimorfismo: 
+	
+- Polimorfismo: Principio de sustiitucion.
+
+- Enlazado Dinamico: 
 
 - static: Se aplica a variables, constantes y metodos. Todas las instancias comparten lp definido static. 
 
