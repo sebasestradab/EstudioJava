@@ -1,7 +1,7 @@
 //===============================
 // Tutorial de Java YouTube
 // CLASE: Uso_Empleado
-// Video 33-34-35-42
+// Video 33-34-35-42-44
 //===============================
 package poo;
 
@@ -40,6 +40,9 @@ public class Uso_Empleado {
 		misEmpleados[3] = new Empleado("Antonio Fernandez");
 		misEmpleados[4] = jefe_RRHH; // Polimorfismo
 		misEmpleados[5] = new Jefatura("Maria", 95000, 1999, 5, 26);
+		
+		Jefatura jefe_finanzas = (Jefatura) misEmpleados[5];
+		jefe_finanzas.estableceIncentivo(55000);
 		
 		// FOR mejorado
 		//for(int i=0;i<misEmpleados.length;i++){

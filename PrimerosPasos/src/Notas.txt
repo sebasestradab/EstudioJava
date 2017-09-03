@@ -69,9 +69,10 @@ java.awt java.util java.io		javax.activity	javax.annotation
 
 - static: Se aplica a variables, constantes y metodos. Todas las instancias comparten lp definido static. 
 
+clase o metodo final: No se pueden heredar clases de ella.
 
-
-
+clase abstracta: Cada clase debe definir el metodo de acuerdo a sus necesidades. Si la clase tiene almenos un metodo abstract, 
+la clase debe ser abstract. Todos los objetos que hereden de esa clase abstracta debe definir los metodos abstract de la super clase.
 
 
 
