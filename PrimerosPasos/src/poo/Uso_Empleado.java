@@ -1,7 +1,7 @@
 //===============================
 // Tutorial de Java YouTube
 // CLASE: Uso_Empleado
-// Video 33-34-35-42-44
+// Video 33-34-35-42-44-49-50
 //===============================
 package poo;
 
@@ -44,11 +44,31 @@ public class Uso_Empleado {
 		Jefatura jefe_finanzas = (Jefatura) misEmpleados[5];
 		jefe_finanzas.estableceIncentivo(55000);
 		
+		/*Empleado director_comercial = new Jefatura("Sandra", 85000, 2012, 05, 05);
+		Comparable ejemplo = new Empleado("Elizabeth", 95000, 2011, 05, 05);
+		
+		if(director_comercial instanceof Empleado) {
+			System.out.println("Es de tipo Jefatura");
+		}
+		
+		
+		if(ejemplo instanceof Comparable) System.out.println("Implementa la interfaz comparable");
+		*/
+		
+		System.out.println(jefe_finanzas.tomar_decisiones("Dar mas dias de vacaciones a los empleados"));
+		
+		System.out.println("El jefe " + jefe_finanzas.dameNombre() + " tiene un bonus de: " +
+							jefe_finanzas.establece_bonus(500));
+		
+		System.out.println(misEmpleados[3].dameNombre() + " tiene un bonus de: " + misEmpleados[3].establece_bonus(200));
+		
 		// FOR mejorado
 		//for(int i=0;i<misEmpleados.length;i++){
 		for(Empleado e: misEmpleados){
 			e.subeSueldo(5);
 		}
+		
+		Arrays.sort(misEmpleados);
 		
 		//for(int i=0;i<misEmpleados.length;i++){
 		for(Empleado e: misEmpleados){
@@ -60,7 +80,7 @@ public class Uso_Empleado {
 
 }
 
-class Empleado{
+class Empleado implements Comparable, Trabajadores{
 	private String nombre;
 	private double sueldo;
 	private Date altaContrato;
@@ -98,9 +118,22 @@ class Empleado{
 		
 		sueldo += aumento;
 	}
+	
+	public int compareTo(Object miObjeto) {
+		Empleado otroEmpleado = (Empleado) miObjeto;
+		
+		if(this.Id < otroEmpleado.Id) return -1;
+		if(this.Id > otroEmpleado.Id) return 1;
+
+		return 0;
+	}
+	
+	public double establece_bonus(double gratificacion) {
+		return Trabajadores.bonus_base + gratificacion;
+	}
 }
 
-class Jefatura extends Empleado {
+class Jefatura extends Empleado implements Jefes {
 	private double incentivo;
 	
 	public Jefatura(String nom, double sue, int ano, int mes, int dia) {
@@ -115,5 +148,15 @@ class Jefatura extends Empleado {
 		double sueldoJefe = super.dameSueldo();
 		
 		return sueldoJefe + incentivo;
+	}
+	
+	public String tomar_decisiones(String decision) {
+		return "Un miembro de la dirección ha tomado la desición de: " + decision;
+	}
+	
+	public double establece_bonus(double gratificacion) {
+		double prima = 2000;
+		
+		return Trabajadores.bonus_base + gratificacion + prima;
 	}
 }

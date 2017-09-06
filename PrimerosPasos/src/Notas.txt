@@ -75,6 +75,27 @@ clase abstracta: Cada clase debe definir el metodo de acuerdo a sus necesidades.
 la clase debe ser abstract. Todos los objetos que hereden de esa clase abstracta debe definir los metodos abstract de la super clase.
 
 
+- Modificadores de Acceso
+
+MODIFICADOR		CLASE		PACKAGE		SUBCLASE								TODOS
+
+Public			Si			Si			Si										Si
+
+Protected		Si			Si			Si										No
+
+Private			Si			No			No										No			
+
+Por Defecto		Si			Si			No	(Si-si esta en el mismo paquete)	No
+
+- Clase object: Clase Cosmica. Todas las clases heredan de object.
+
+- Objeto ENUM (Enumerado) = Una variable objetos de tipo ENUM donde se puede almacenar uns tipos de valores.
+
+- interfaces: Conjunto de directrices que deben cumplir las clases. Las interfaces establecen los comportamientos a cumplir por las 
+clases que implementan las interfaces. Solo pueden tener metodos abstractos. La interfaz es .class. No tienen variables sino constantes.
+
+- instanceof: me dice si una instancia es de una clase;
+
 
 
 			
