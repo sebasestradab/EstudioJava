@@ -96,6 +96,20 @@ clases que implementan las interfaces. Solo pueden tener metodos abstractos. La 
 
 - instanceof: me dice si una instancia es de una clase;
 
+- Inner Class = Clase interna.
+
+----------------------------------------------------------
+Java Visual
+
+ - Clase Toolkit. Acceder a la infromacion del sistema como por ejemplo el tamaño de la pantalla.
+
+//=====================================
+// Tutorial de Java YouTube
+// CLASE: Uso_Empleado
+// Video 50
+// Tema: Interfaces y Clases internas
+//=====================================
+
 
 
 			
