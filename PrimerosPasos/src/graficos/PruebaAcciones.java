@@ -7,6 +7,8 @@
 // Tema: Eventos XIII - Multiples Fuentes II
 // Video 78
 // Tema: Eventos XIV - Multiples Fuentes III
+// Video 79
+// Tema: Eventos XV - Multiples Fuentes IV
 //==============================================
 package graficos;
 
@@ -60,6 +62,25 @@ class PanelAccion extends JPanel{
 		add(botonAzul);
 		add(botonRojo);*/
 		
+		// Crear mapa de entrada
+//		InputMap mapaEntrada = getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+//		InputMap mapaEntrada = getInputMap(JComponent.WHEN_FOCUSED);
+		InputMap mapaEntrada = getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+		
+		// Representa la combinacion de teclas
+		KeyStroke teclaAmarillo = KeyStroke.getKeyStroke("ctrl A");
+		
+		// Asignar combinacion de teclas a un objeto
+		mapaEntrada.put(teclaAmarillo, "fondo_amarillo");
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl B"), "fondo_azul");
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl C"), "fondo_azul");
+		mapaEntrada.put(KeyStroke.getKeyStroke("ctrl R"), "fondo_rojo");
+		
+		// Asignar el objeto a la accion
+		ActionMap mapaAccion = getActionMap();
+		mapaAccion.put("fondo_amarillo", accionAmarillo);
+		mapaAccion.put("fondo_azul", accionAzul);
+		mapaAccion.put("fondo_rojo", accionRojo);
 	}
 
 	private class Accioncolor extends AbstractAction{
