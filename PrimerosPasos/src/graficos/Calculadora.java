@@ -5,6 +5,8 @@
 // Tema: Layouts III
 // Video 84
 // Tema: Layouts IV
+// Video 85
+// Tema: Layouts V
 //==============================================
 package graficos;
 
@@ -36,9 +38,13 @@ class LaminaCalculadora extends JPanel{
 	private JPanel milamina2;
 	private JButton pantalla;
 	private boolean principio;
+	private double resultado;
+	private String ultimaOperacion;
 	
 	public LaminaCalculadora() {
 		principio = true;
+		ultimaOperacion = "";
+		resultado = 0;
 		setLayout(new BorderLayout());
 		pantalla = new JButton("0");
 		pantalla.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -94,30 +100,40 @@ class LaminaCalculadora extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			String entrada = e.getActionCommand(); // Retorna el texto del boton pulsado
 			
+			switch(entrada.charAt(0)) {
+				case '+': case '*': case '/': case '-':
+					System.out.println(Double.parseDouble(pantalla.getText()));
+					calcular(Double.parseDouble(pantalla.getText()), entrada.charAt(0));
+					pantalla.setText(" ");
+					
+					return;
+				case '=':
+					pantalla.setText(String.valueOf(resultado));
+					return;
+			}
+			
 			if(principio) {
-				pantalla.setText("");
+				pantalla.setText(" ");
 				principio = false;
 			}
 			
-//			if(entrada != "/") {
-				if(pantalla.getText() == "0") {
-					pantalla.setText(entrada);
-				}else {
-					pantalla.setText(pantalla.getText() + entrada);
-				}
-//			}
+			if(pantalla.getText() == "0") {
+				pantalla.setText(entrada);
+			}else {
+				pantalla.setText(pantalla.getText() + entrada);
+			}
 		}
 
 		public void keyPressed(KeyEvent e) {
 			char entrada = e.getKeyChar(); // Retorna el texto del boton pulsado
 			
 			if(principio) {
-				pantalla.setText("");
+				pantalla.setText(" ");
 				principio = false;
 			}
 			
 			// Si se digita una letra retorna y no se muestra
-			if(!Character.isDigit(entrada)) return;
+			if(!Character.isDigit(entrada) && entrada != '.') return;
 			
 			if(pantalla.getText() == "0") {
 				pantalla.setText(Character.toString(entrada));
@@ -129,5 +145,23 @@ class LaminaCalculadora extends JPanel{
 		public void keyReleased(KeyEvent e) {}
 		public void keyTyped(KeyEvent e) {}
 		
+		public void calcular(double x, char o) {
+			switch(o) {
+				case '+': 
+					resultado = resultado + x;
+					break;
+				case '*': 
+					resultado = resultado * x;
+					break;
+				case '/': 
+					resultado = resultado / x;
+					break;
+				case '-':
+					resultado = resultado - x;
+					break;
+			}
+		}
+		
 	}
+	
 }
