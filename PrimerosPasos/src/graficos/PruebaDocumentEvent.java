@@ -1,6 +1,6 @@
 //=========================================================
 // Tutorial de Java YouTube
-// CLASE: PruebaTexto
+// CLASE: PruebaDocumentEvent
 // Video 88
 // Tema: Componentes Swing - Eventos en Cuadros de Texto I
 //=========================================================
